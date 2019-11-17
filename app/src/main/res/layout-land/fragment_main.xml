@@ -1,0 +1,173 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="hr.vsite.dipl.quicktimetable.MainFragment"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:baselineAligned="false">
+
+    <RelativeLayout 
+        android:layout_weight="1" 
+        android:layout_height="wrap_content" 
+        android:layout_width="wrap_content" 
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/tv_origin"
+            android:id="@+id/textViewOrigin"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/relativeLayout"
+            android:layout_marginTop="10dp"
+            android:gravity="center|start"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"/>
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewOrigin"
+            android:layout_alignStart="@+id/buttonSearch"
+            android:layout_marginTop="10dp"
+            android:id="@+id/relativeLayout"
+            android:gravity="center"
+            android:layout_alignParentEnd="true">
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioGroupOrigin">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb_automatic"
+                    android:id="@+id/radioButtonAutomatic"
+                    android:checked="true"
+                    android:onClick="onRadioButtonClicked"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb_manual"
+                    android:id="@+id/radioButtonManual"
+                    android:onClick="onRadioButtonClicked"
+                    />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/radioGroupOrigin"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/nearestStation"
+                android:textIsSelectable="true"
+                android:ems="10" />
+
+            <AutoCompleteTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPostalAddress"
+                android:ems="10"
+                android:id="@+id/editTextOrigin"
+                android:labelFor="@id/editTextOrigin"
+                android:enabled="false"
+                android:layout_alignBottom="@+id/radioGroupOrigin"
+                android:layout_toEndOf="@+id/radioGroupOrigin" />
+
+        </RelativeLayout>
+
+        <hr.vsite.dipl.quicktimetable.TextProgressBar
+            style="@style/CustomProgressBarHorizontal"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/buttonSearch"
+            android:layout_alignEnd="@+id/buttonSearch"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/buttonSearch"
+            android:onClick="buttonSearchOnClick"
+            android:text="@string/search"
+            android:enabled="true"
+            android:focusable="false"
+            android:layout_marginBottom="11dp"
+            android:layout_above="@+id/progressBar"
+            android:layout_alignParentStart="true" />
+
+        <AutoCompleteTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPostalAddress"
+            android:ems="10"
+            android:id="@+id/editTextDestination"
+            android:labelFor="@id/editTextDestination"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/relativeLayout"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/tv_destination"
+            android:id="@+id/textViewDestination"
+            android:gravity="start"
+            android:layout_alignBottom="@+id/editTextDestination"
+            android:layout_toStartOf="@+id/editTextDestination"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+    
+    <RelativeLayout android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/listViewHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/listViewDepartureTimes"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/textLine"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/item_line"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/textTime"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/item_time"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/listViewDepartureTimes"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/listViewHeader"
+            android:footerDividersEnabled="false"
+            tools:listitem="@layout/item_departure_row"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,153 @@
+<resources>
+    <string name="app_name" translatable="false">Quick Timetable</string>
+
+    <string name="open_location_services">Location is turned off. Do you want to open Location Services?</string>
+    <string name="no_destination">Destination not specified</string>
+    <string name="no_origin">Origin not specified</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_download_osm">Download OSM</string>
+    <string name="action_read_data">Read data</string>
+    <string name="button_locate_text">Locate me</string>
+    <string name="tv_longitude_text">Longitude</string>
+    <string name="tv_latitude_text">Latitude</string>
+    <string name="tv_altitude_text">Altitude</string>
+    <string name="tv_accuracy_text">Accuracy</string>
+    <string name="questionmark" translatable="false">\?</string>
+
+    <string name="location_fragment">Map</string>
+    <string name="main_fragment">Timetable</string>
+    <string name="title_activity_main" translatable="false">Quick Timetable</string>
+
+    <string name="search">Search</string>
+    <string name="tv_nearest_station">Nearest station</string>
+    <string name="tv_destination">Destination</string>
+    <string name="tv_origin">Origin</string>
+    <string name="button_details">Details</string>
+    <string name="button_dismiss_text">Dismiss</string>
+    <string name="rb_manual">manual entry</string>
+    <string name="rb_automatic">automatic</string>
+
+    <string name="no_connection_message">No connection available.</string>
+    <string name="title_activity_web_view" translatable="false">WebViewActivity</string>
+    <string name="message_getting_location">Getting location…</string>
+    <string name="message_download">Downloading OSM file…</string>
+    <string name="message_download_error">Error downloading OSM file</string>
+    <string name="message_download_success">Downloading OSM file successful!</string>
+    <string name="button_download_osm">Download OSM file</string>
+    <string name="button_cancel_download_osm">Cancel download</string>
+    <string name="description_download_osm_action_not_found">Open Street Map file was <b>not found</b>. \nTo download OSM file use the button below.</string>
+    <string name="description_download_osm_action_found">Open Street Map file <b>was found</b>. \nTo download OSM file again use the button below.</string>
+    <string name="message_downl_cancel_prompt_title">Cancel download</string>
+    <string name="message_downl_cancel_prompt">Do you want to cancel the OSM file download?</string>
+    <string name="message_redown_file">The OSM file was <b><i>not</i></b> found. \\nDo you want to re-download the file?</string>
+    <string name="message_title_redown_file">Re-download OSM file</string>
+    <string name="progressbar_downloading" translatable="false">D o w n l o a d i n g</string>
+    <string name="progressbar_segmenting">Segmenting lines</string>
+    <string name="message_file_not_found">OSM file was not found. Please download the file by using the Download OSM button.</string>
+    <string name="message_file_not_found_title">OSM file not found</string>
+    <string name="message_no_connection">Internet connection is not available. Please turn it on to obtain tram line data.</string>
+    <string name="message_no_connection_title">Internet connection not available</string>
+    <string name="message_empty_database">No data found. Reading data takes about 5 minutes and requires internet connection. Please use the <b>Read data</b> button.</string>
+    <string name="message_origin_invalid">Origin station does not exist.</string>
+    <string name="message_destination_invalid">Destination station does not exist.</string>
+    <string name="message_no_departure_found">No departure time found.</string>
+    <string name="loading_stations">Loading tram stations</string>
+    <string name="loading_line_segments">Loading tram lines</string>
+    <string name="loading_departures">Loading departure times</string>
+    <string name="loaded_line_segments">Tram line segments loaded</string>
+    <string name="loaded_stations">Tram stations loaded</string>
+    <string name="loaded_departures">Loaded departure times</string>
+    <string name="title_delete_database">Data replacement</string>
+    <string name="message_delete_database">Data already exists, do you want to delete the existing data and get new data?</string>
+    <string name="message_database_deleted">Old data deleted.</string>
+    <string name="pb_finished">"Finished "</string>
+    <string name="pb_of">" of "</string>
+    <string name="pb_lines">" lines"</string>
+    <string name="progressbar_reading_osm">Reading OSM file</string>
+    <string name="progressbar_routing">Routing</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="title_activity_download">Download</string>
+    <string name="message_auto_locate_on">Automatic location ON</string>
+    <string name="message_auto_locate_off">Automatic location OFF</string>
+    <string name="loading_map_data">Loading map data</string>
+    <string name="header_departures">Departures</string>
+    <string name="item_line">Line number</string>
+    <string name="item_time">Departure time</string>
+
+</resources>

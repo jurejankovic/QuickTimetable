@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "hr.vsite.dipl.quicktimetable"
+        minSdkVersion 17
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'osmosis-plugins.conf'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+    }
+    lintOptions {
+        abortOnError false
+    }
+    dexOptions {
+        preDexLibraries = true
+    }
+    productFlavors {
+    }
+}
+apply plugin: 'com.android.application'
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleDependency
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
+    implementation 'com.google.android.gms:play-services-drive:15.0.1'
+    implementation  'com.android.support:design:27.1.1'
+    implementation 'org.jsoup:jsoup:1.10.2'
+    implementation 'com.ximpleware:vtd-xml:2.11'
+    implementation 'joda-time:joda-time:2.9.3'
+    implementation 'com.google.api-client:google-api-client:1.22.0'
+    implementation 'com.google.api-client:google-api-client-android:1.22.0'
+    implementation 'com.google.http-client:google-http-client:1.22.0'
+    implementation 'com.google.http-client:google-http-client-android:1.22.0'
+    implementation 'com.google.http-client:google-http-client-jackson:1.22.0'
+    implementation 'com.google.oauth-client:google-oauth-client:1.22.0'
+    implementation 'org.codehaus.jackson:jackson-core-asl:1.9.13'
+    implementation 'com.google.code.findbugs:jsr305:3.0.1'
+    implementation 'com.google.apis:google-api-services-drive:v3-rev44-1.22.0'
+    implementation 'org.jsoup:jsoup:1.10.2'
+}
