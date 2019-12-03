@@ -1,40 +1,36 @@
 package hr.vsite.dipl.quicktimetable;
 
+import android.Manifest;
 import android.content.Intent;
-import android.database.Cursor;
+import android.content.pm.PackageManager;
 import android.location.Criteria;
-import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
-import android.widget.ListView;
+import android.widget.Toast;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
-import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import hr.vsite.dipl.quicktimetable.adapter.TabsPagerAdapter;
-import hr.vsite.dipl.quicktimetable.constants.QTTconstants;
 
 //import android.app.ActionBar;
 
-
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener,  MainFragment.OnRouteChangedListener {
     private static final String TAG ="MainActivity";
+    private static final int MULTIPLE_PERMISSIONS = 5;
 
     private ViewPager viewPager;
     private TabsPagerAdapter tabsPagerAdapter;
@@ -56,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        checkPermissions();
 
         // starting location service to get coordinates as needed
         startService(new Intent(this, LocationService.class));
@@ -112,6 +110,32 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         super.onRestoreInstanceState(savedInstanceState);
     }
 
+    // function to check permissions
+    private void checkPermissions() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                + ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale
+                    (this, Manifest.permission.ACCESS_FINE_LOCATION) ||
+                    ActivityCompat.shouldShowRequestPermissionRationale
+                            (this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    requestPermissions(
+                            new String[]{Manifest.permission
+                                    .ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, MULTIPLE_PERMISSIONS);
+                }
+
+            } else {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    requestPermissions(
+                            new String[]{Manifest.permission
+                                    .ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, MULTIPLE_PERMISSIONS);
+                }
+            }
+        } else {
+            Toast.makeText(getBaseContext(),"Permission not granted", Toast.LENGTH_LONG).show();
+        }
+    }
 
     protected void startLocationUpdates() {
         try {

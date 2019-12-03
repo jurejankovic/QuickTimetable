@@ -5,25 +5,19 @@ import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.database.sqlite.SQLiteConstraintException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
-import android.test.suitebuilder.annotation.SmallTest;
 import android.util.Log;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import org.joda.time.DateTime;
-import org.joda.time.Days;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -33,10 +27,8 @@ import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
 
 import hr.vsite.dipl.quicktimetable.constants.QTTconstants;
-import hr.vsite.dipl.quicktimetable.database.DBHelper;
 import hr.vsite.dipl.quicktimetable.downloader.OsmFileChecker;
 
 import static android.content.Context.POWER_SERVICE;

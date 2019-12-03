@@ -437,9 +437,9 @@ public class MainFragment extends Fragment implements LoaderManager.LoaderCallba
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                displaySettings();
-                return true;
+//            case R.id.action_settings:
+//                displaySettings();
+//                return true;
 
             case R.id.action_download_osm:
                 downloadOsm();
